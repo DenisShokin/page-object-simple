@@ -38,4 +38,10 @@ public class ProductsPage {
         return Integer.parseInt(shoppingCardCounter.getText());
     }
 
+    public void addAllInventoryToCard() {
+        for (SelenideElement inventoryItem:inventoryItemList){
+            inventoryItem.find("button").click();
+        }
+    }
+
 }

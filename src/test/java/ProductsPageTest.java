@@ -40,4 +40,12 @@ public class ProductsPageTest extends TestBase {
         productsPage.addInventoryByLabelToCard("Sauce Labs Bolt T-Shirt");
         Assertions.assertEquals(1, productsPage.getCountItemsInCard(), "In card incorrect count items");
     }
+
+    @DisplayName("Add all items to card from inventory list")
+    @Test
+    public void addAllItemsToCard() {
+        productsPage.verifyShoppingCardIsEmpty();
+        productsPage.addAllInventoryToCard();
+        Assertions.assertEquals(6, productsPage.getCountItemsInCard(), "In card incorrect count items");
+    }
 }
