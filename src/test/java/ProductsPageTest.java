@@ -14,7 +14,7 @@ public class ProductsPageTest extends TestBase {
     private ProductsPage productsPage;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         open(properties.getProperty("mainUrl"));
         loginPage = new LoginPage();
         loginPage.login(properties.getProperty("userLogin"), properties.getProperty("userPassword"));
@@ -30,7 +30,7 @@ public class ProductsPageTest extends TestBase {
     @DisplayName("Check count inventory list")
     @Test
     public void checkCountInventoryList() {
-        Assertions.assertEquals(6, productsPage.getInventoryItemsCount(), "Inventory count is not correct") ;
+        Assertions.assertEquals(6, productsPage.getInventoryItemsCount(), "Inventory count is not correct");
     }
 
     @DisplayName("Add item to card from inventory list")

@@ -13,7 +13,7 @@ public class LoginPageTest extends TestBase {
     private LoginPage loginPage;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         open(properties.getProperty("mainUrl"));
         loginPage = new LoginPage();
     }

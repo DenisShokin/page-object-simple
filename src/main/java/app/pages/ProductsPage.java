@@ -39,7 +39,7 @@ public class ProductsPage {
     }
 
     public void addAllInventoryToCard() {
-        for (SelenideElement inventoryItem:inventoryItemList){
+        for (SelenideElement inventoryItem : inventoryItemList) {
             inventoryItem.find("button").click();
         }
     }
