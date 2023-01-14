@@ -10,13 +10,15 @@ repositories {
 }
 
 dependencies {
+    //selenide
     implementation 'com.codeborne:selenide:6.11.0'
+    //junit
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
-
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
 }
 
 test {
     useJUnitPlatform()
+    maxParallelForks(2)
 }

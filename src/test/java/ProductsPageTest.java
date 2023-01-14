@@ -36,6 +36,7 @@ public class ProductsPageTest extends TestBase {
     @DisplayName("Add item to card from inventory list")
     @Test
     public void addItemToCard() {
+        productsPage.verifyShoppingCardIsEmpty();
         productsPage.addInventoryByLabelToCard("Sauce Labs Bolt T-Shirt");
         Assertions.assertEquals(1, productsPage.getCountItemsInCard(), "In card incorrect count items");
     }
