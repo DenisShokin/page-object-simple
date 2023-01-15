@@ -1,10 +1,8 @@
 import app.pages.LoginPage;
 import app.pages.ProductsPage;
+import com.codeborne.selenide.Selenide;
 import core.TestBase;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -20,18 +18,23 @@ public class LoginPageTest extends TestBase {
 
     @DisplayName("Success login to saucedemo.com")
     @Test
-    public void successLogin() {
-        loginPage.login(properties.getProperty("userLogin"), properties.getProperty("userPassword"));
+    public void standardUserLogin() {
+        loginPage.login(properties.getProperty("standardLogin"), properties.getProperty("standardPassword"));
         ProductsPage productsPage = new ProductsPage();
         productsPage.verifyProductsTitle();
     }
 
-    @DisplayName("Authorize with incorrect password to saucedemo.com")
+    @DisplayName("Authorize with locked login to saucedemo.com")
     @Test
-    public void errorLogin() {
-        loginPage.login("standard_user", "standard_user");
-        Assertions.assertEquals("Epic sadface: Username and password do not match any user in this service",
+    public void lockedUserLogin() {
+        loginPage.login(properties.getProperty("lockedLogin"), properties.getProperty("standardPassword"));
+        Assertions.assertEquals("Epic sadface: Sorry, this user has been locked out.",
                 loginPage.getErrorMessage());
+    }
+
+    @AfterEach
+    public void tearDown() {
+        Selenide.closeWebDriver();
     }
 
 }

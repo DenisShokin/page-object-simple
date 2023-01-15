@@ -4,8 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selenide.$$x;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 public class ProductsPage {
 
@@ -42,6 +41,11 @@ public class ProductsPage {
         for (SelenideElement inventoryItem : inventoryItemList) {
             inventoryItem.find("button").click();
         }
+    }
+
+    public InventoryPage openInventoryCard(String label) {
+        inventoryItemList.findBy(Condition.text(label)).find("div.inventory_item_img").click();
+        return page(InventoryPage.class);
     }
 
 }
