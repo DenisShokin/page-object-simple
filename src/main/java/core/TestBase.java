@@ -12,7 +12,7 @@ public class TestBase {
 
         properties = new Properties();
         try {
-            FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/conf.properties");
+            FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/application.properties");
             properties.load(fileInputStream);
         } catch (IOException e) {
             e.printStackTrace();
